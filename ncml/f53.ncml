@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ncml:netcdf xmlns:ncml="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2" location="/usgs/vault0/models/tides/ec2015/f53.nc">
+  <ncml:dimension name="time" orgName="nfreqs"/>
+  <ncml:dimension name="charlen" length="7" />
+  <ncml:dimension name="node" length="2066216" />
+  <ncml:dimension name="nbi" length="4" />
+  <ncml:dimension name="nbd" length="364464" />
+  <ncml:dimension name="nface" length="3" />
+  <ncml:dimension name="nele" length="3770720" />
+  <ncml:attribute name="creation_date" value="22-Mar-2018 09:35:39" />
+  <ncml:attribute name="title" value="ADCIRC ec2015 East Coast Tidal Database" />
+  <ncml:attribute name="cdm_data_type" value="ugrid" />
+  <ncml:attribute name="naming_authority" value="org.renci" />
+  <ncml:attribute name="id" value="ec2015" />
+  <ncml:attribute name="creator_name" value="Brian Blanton" />
+  <ncml:attribute name="creator_email" value="bblanton@renci.org" />
+  <ncml:attribute name="publisher_name" value="Brian Blanton" />
+  <ncml:attribute name="publisher_email" value="bblanton@renci.org" />
+  <ncml:attribute name="history" value="Thu Mar 22 12:11:04 2018: ncks -A ec2012_v3d.nc f53.nc" />
+  <ncml:attribute name="history_of_appended_files" value="Thu Mar 22 12:11:04 2018: Appended file ec2012_v3d.nc had no &quot;history&quot; attribute&#xA;" />
+  <ncml:attribute name="NCO" value="4.7.3" />
+  <ncml:attribute name="Conventions" value="CF-1.6, UGRID-1.0" />
+  <ncml:attribute name="model_domain" value="ec2012_v3d" />
+  <ncml:attribute name="model_domain" value="ec2012_v3d" />
+  <ncml:attribute name="model_domain" value="ec2012_v3d" />
+  <ncml:variable name="time" orgName="Frequencies" >
+    <ncml:attribute name="long_name" value="Number of Frequencies/Constituents" />
+    <ncml:attribute name="standard_name" value="time" />
+    <ncml:attribute name="axis" value="T" />
+    <ncml:attribute name="units" value="days since 2000-01-01" />
+    <ncml:values start="0" increment="1" />
+  </ncml:variable>
+  <ncml:variable name="Names" >
+    <ncml:attribute name="long_name" value="Constituent Names" />
+  </ncml:variable>
+  <ncml:variable name="Amp" >
+    <ncml:attribute name="units" value="m" />
+    <ncml:attribute name="long_name" value="Tide Amplitudes" />
+    <ncml:attribute name="standard_name" value="elevation_amplitude" />
+    <ncml:attribute name="location" value="node" />
+    <ncml:attribute name="coordinates" value="time lon lat" />
+    <ncml:attribute name="mesh" value="adcirc_mesh" />
+  </ncml:variable>
+  <ncml:variable name="Pha" >
+    <ncml:attribute name="units" value="deg GMT" />
+    <ncml:attribute name="long_name" value="Tide Phases" />
+    <ncml:attribute name="standard_name" value="elevation_phase" />
+    <ncml:attribute name="location" value="node" />
+    <ncml:attribute name="coordinates" value="time lon lat" />
+    <ncml:attribute name="mesh" value="adcirc_mesh" />
+  </ncml:variable>
+  <ncml:variable name="Re" >
+    <ncml:attribute name="long_name" value="Real part of complex tide" />
+    <ncml:attribute name="standard_name" value="Real part of complex tide" />
+    <ncml:attribute name="units" value="m" />
+    <ncml:attribute name="location" value="node" />
+    <ncml:attribute name="coordinates" value="time lon lat" />
+    <ncml:attribute name="mesh" value="adcirc_mesh" />
+  </ncml:variable>
+  <ncml:variable name="Im" >
+    <ncml:attribute name="long_name" value="Imaginary part of complex tide" />
+    <ncml:attribute name="standard_name" value="Imaginary part of complex tide" />
+    <ncml:attribute name="units" value="m" />
+    <ncml:attribute name="location" value="node" />
+    <ncml:attribute name="coordinates" value="time lon lat" />
+    <ncml:attribute name="mesh" value="adcirc_mesh" />
+  </ncml:variable>
+  <ncml:variable name="bnd" shape="nbi nbd" type="double">
+    <ncml:attribute name="long_name" value="Boundary_Segment_Node_List" />
+  </ncml:variable>
+  <ncml:variable name="depth" shape="node" type="double">
+    <ncml:attribute name="long_name" value="Bathymetry" />
+    <ncml:attribute name="units" value="meters" />
+    <ncml:attribute name="standard_name" value="depth" />
+    <ncml:remove type="attribute"  name="axis" />
+    <ncml:remove type="attribute"  name="grid" />
+    <ncml:attribute name="grid" value="tri_grid" />
+    <ncml:attribute name="location" value="node" />
+    <ncml:attribute name="coordinates" value="lon lat" />
+    <ncml:attribute name="mesh" value="adcirc_mesh" />
+  </ncml:variable>
+  <ncml:variable name="ele" shape="nface nele" type="double">
+    <ncml:attribute name="long_name" value="element" />
+    <ncml:attribute name="start_index" type="int" value="1" />
+    <ncml:attribute name="units" value="nondimensional" />
+    <ncml:attribute name="cf_role" value="face_node_connectivity" />
+  </ncml:variable>
+
+  <ncml:variable name="lat" shape="node" type="double">
+    <ncml:attribute name="long_name" value="Latitude" />
+    <ncml:attribute name="units" value="degrees_north" />
+    <ncml:attribute name="standard_name" value="latitude" />
+    <ncml:attribute name="axis" value="Y" />
+  </ncml:variable>
+  <ncml:variable name="lon" shape="node" type="double">
+    <ncml:attribute name="long_name" value="Longitude" />
+    <ncml:attribute name="units" value="degrees_east" />
+    <ncml:attribute name="standard_name" value="longitude" />
+    <ncml:attribute name="axis" value="X" />
+  </ncml:variable>
+    <ncml:variable name="adcirc_mesh" shape="" type="int">
+    <ncml:attribute name="long_name" value="mesh_topology" />
+    <ncml:attribute name="node_coordinates" value="lon lat" />
+    <ncml:attribute name="face_node_connectivity" value="ele" />
+    <ncml:attribute name="cf_role" value="mesh_topology" />
+    <ncml:attribute name="topology_dimension" type="int" value="2" />
+  </ncml:variable>
+</ncml:netcdf>
